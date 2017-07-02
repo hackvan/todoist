@@ -3,21 +3,34 @@
     <title><%= @title + ' | TODOIST' %></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <style media="screen">
-      body { padding-top: 50px; }
+      body {
+        padding-top: 70px;
+      }
+      .btn-task {
+        background-color: #222;
+        color: white;
+      }
+      #panel-heading-task {
+        background-color: #222;
+        color: white;
+      }
+      .text-task {
+        display: inline;
+      }
+      .task-done {
+        text-decoration:line-through;
+      }
     </style>
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">TODOIST</a>
+          <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tasks"></span> TODOIST</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li <%= 'class="active"' if @title.downcase == "home" %>><a href="/">Home</a></li>
-            <li <%= 'class="active"' if @title.downcase == "about" %>><a href="/about">About</a></li>
-          </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li <%= 'class="active"' if @title.downcase == "about" %>><a href="/about">About</a></li>
             <li <%= 'class="active"' if @title.downcase == "contact" %>><a href="/contact">Contact</a></li>
           </ul>
         </div>

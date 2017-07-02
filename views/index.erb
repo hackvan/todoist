@@ -1,23 +1,58 @@
-<ol class="breadcrumb">
-  <li><a href="/" class="active">Home</a></li>
-</ol>
 <h2>Add todo item:</h2>
-<form class="form-inline" action="/todo" method="post">
+<form class="form-inline" action="/task/new" method="post">
   <div class="form-group">
-    <input type="text" class="form-control" name="task" placeholder="Todo item">
+    <input type="text" class="form-control" name="task" placeholder="Task description">
   </div>
-  <button type="submit" class="btn btn-primary">
-    Post
+  <button type="submit" class="btn btn-task">
+    <span class="glyphicon glyphicon-plus"></span> Add Task
   </button>
 </form>
 <hr>
-<div class="col-md-8">
-  <article>
-    <% @task.each do |t| %>
-      <p><%= t["id"] %></p>
-      <p><%= t["title"] %></p>
-      <p><%= t["done"] %></p>
-      <p><%= t["created_at"] %></p>
-    <% end %>
-  </article>
+<% if @flash %>
+  <div class="alert alert-<%= @flash[:type] %> alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= @flash[:message] %>
+  </div>
+<% end %>
+<div class="panel panel-default">
+  <div class="panel-heading" id = "panel-heading-task">
+      <h3 class="panel-title">To Do:</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+          <th class="col-md-8">Task</th>
+          <th class="col-md-4">&nbsp;</th>
+      </thead>
+      <tbody>
+        <% @task.each do |t| %>
+          <tr>
+            <td class="col-md-8 table-text">
+              <% if t["done"] %>
+                <span class="glyphicon glyphicon-check"></span>
+                <p class="text-task task-done">
+                  <%= t["title"] %>
+                </p>
+              <% else %>
+                <span class="glyphicon glyphicon-unchecked"></span>
+                <p class="text-task">
+                  <%= t["title"] %>
+                </p>
+              <% end %>
+            </td>
+            <td class="col-md-4">
+              <% if !t["done"] %>
+                <a href="/task/<%= t["id"] %>/done" class="btn btn-primary">
+                  <span class="glyphicon glyphicon-ok"></span> Done
+                </a>
+              <% end %>
+              <a href="/task/<%= t["id"] %>/delete" class="btn btn-danger">
+                <span class="glyphicon glyphicon-remove"></span>  Delete
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
