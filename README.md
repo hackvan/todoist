@@ -1,6 +1,8 @@
 # TODOIST
 
-Bienvenidos a TODOIST!,
+Bienvenidos a TODOIST,
+
+![homepage](homepage.png "homepage")
 
 La aplicación web que le permitira gestionar todas sus listas de tareas.
 
