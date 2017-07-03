@@ -42,13 +42,19 @@
             </td>
             <td class="col-md-4">
               <% if !t["done"] %>
-                <a href="/task/<%= t["id"] %>/done" class="btn btn-primary">
-                  <span class="glyphicon glyphicon-ok"></span> Done
-                </a>
+                <form class="form-inline" action="/task/<%= t["id"] %>/done" method="post">
+                  <input type="hidden" name="_method" value="patch">
+                  <button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-ok"></span>  Done
+                  </button>
+                </form>
               <% end %>
-              <a href="/task/<%= t["id"] %>/delete" class="btn btn-danger">
-                <span class="glyphicon glyphicon-remove"></span>  Delete
-              </a>
+              <form class="form-inline" action="/task/<%= t["id"] %>/delete" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="btn btn-danger">
+                  <span class="glyphicon glyphicon-remove"></span>  Delete
+                </button>
+              </form>
             </td>
           </tr>
         <% end %>

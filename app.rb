@@ -25,12 +25,12 @@ post '/task/new' do
   redirect '/tasks'
 end
 
-get '/task/:id/done' do
+patch '/task/:id/done' do
   Tarea.update(params[:id].to_i)
   redirect '/tasks'
 end
 
-get '/task/:id/delete' do
+delete '/task/:id/delete' do
   Tarea.destroy(params[:id].to_i)
   session[:flash] = {
     message: "The task has been deleted",

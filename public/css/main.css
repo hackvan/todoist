@@ -15,3 +15,7 @@ body {
 .task-done {
   text-decoration:line-through;
 }
+
+td > form {
+  display: inline;
+}
