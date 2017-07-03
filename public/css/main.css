@@ -1,0 +1,17 @@
+body {
+  padding-top: 70px;
+}
+.btn-task {
+  background-color: #222;
+  color: white;
+}
+#panel-heading-task {
+  background-color: #222;
+  color: white;
+}
+.text-task {
+  display: inline;
+}
+.task-done {
+  text-decoration:line-through;
+}

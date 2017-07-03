@@ -2,7 +2,7 @@
 
 Bienvenidos a TODOIST,
 
-![homepage](homepage.png "homepage")
+![homepage](/public/images/homepage.png "homepage")
 
 La aplicación web que le permitira gestionar todas sus listas de tareas.
 
